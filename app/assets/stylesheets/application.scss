@@ -50,3 +50,18 @@ body {
   height: 290px;
   text-align: left;
 }
+
+.table {
+-webkit-tap-highlight-color: transparent;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.428571429;
+color: #333333;
+box-sizing: border-box;
+border-collapse: collapse;
+border-spacing: 0;
+background-color: transparent;
+width: 100%;
+max-width: 100%;
+margin-bottom: 20px;
+}
