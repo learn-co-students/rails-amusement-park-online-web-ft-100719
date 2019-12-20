@@ -6,13 +6,15 @@ class User < ActiveRecord::Base
     has_many :attractions, through: :rides
 
     def mood
+        #checks for happiness/nausea values
         #Returns 'sad' if nausea > happiness
         #Returns 'happy' if nausea < happiness
-
-        if self.happiness > self.nausea
-            return 'happy'
-        else
-            return 'sad'
+        if self.happiness && self.nausea
+            if self.happiness > self.nausea
+                return 'happy'
+            else
+                return 'sad'
+            end
         end
     end
 end

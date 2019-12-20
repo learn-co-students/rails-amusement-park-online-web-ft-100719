@@ -14,20 +14,17 @@ class Ride < ActiveRecord::Base
                 :happiness => new_happiness
             )
             
-            "Thanks for riding the #{attraction.name}!"
+            "Thanks for riding the #{self.attraction.name}!"
         else
-            ride_errors
+            self.ride_errors
         end
     end
 
     def ride_errors
-        user = self.user
-        attraction = self.attraction
         ride_errors = ["Sorry."]
-
-        ride_errors << "You do not have enough tickets to ride the #{attraction.name}." if user.tickets < attraction.tickets
+        ride_errors << "You do not have enough tickets to ride the #{self.attraction.name}." if self.user.tickets < self.attraction.tickets
         
-        ride_errors << "You are not tall enough to ride the #{attraction.name}." if user.height < attraction.min_height
+        ride_errors << "You are not tall enough to ride the #{self.attraction.name}." if self.user.height < self.attraction.min_height
 
         ride_errors.length > 1 ? ride_errors.join(" ") : nil
 
