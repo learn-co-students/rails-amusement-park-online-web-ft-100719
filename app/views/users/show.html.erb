@@ -1,0 +1,12 @@
+<%= content_tag :div, class: "info" do %>
+    <%= @user.name %>
+    <% if !@user.admin %>
+    <%= "Mood: #{@user.mood}" %>
+    <%= "Tickets: #{@user.tickets}" %>
+    <%= "Height: #{@user.height}" %>
+    <% else %>
+    ADMIN<BR>
+    <% end %>
+    <%= link_to 'Log Out', '/logout', data: { method: :delete }%>
+    <%= link_to 'See attractions', attractions_path %>
+<% end %>
