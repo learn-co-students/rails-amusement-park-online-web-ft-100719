@@ -1,0 +1,16 @@
+<%= form_tag(signin_path) do %>
+<%= div_form_group do %>
+    <%= label_tag :name %>
+    <%= collection_select :user,:name, User.all, :name, :name %>
+<% end %>
+
+<%= div_form_group do %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password,"", class: form_control_class %>
+<% end %>
+
+<%= content_tag :div, class: "actions" do %>
+    <br/>
+    <%= submit_tag 'Sign In', class:"btn btn-primary" %>
+<% end %>
+<% end %> 

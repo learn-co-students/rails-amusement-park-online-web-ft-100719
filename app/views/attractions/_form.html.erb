@@ -1,0 +1,31 @@
+<%= form_for attraction do |f| %>
+<%= div_form_group do %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: form_control_class %>
+<% end %>
+
+<%= div_form_group do %>
+    <%= f.label :min_height %>
+    <%= f.text_field :min_height, class: form_control_class %>
+<% end %>
+
+<%= div_form_group do %>
+    <%= f.label :happiness_rating %>
+    <%= f.text_field :happiness_rating, class: form_control_class %>
+<% end %>
+
+<%= div_form_group do %>
+    <%= f.label :nausea_rating %>
+    <%= f.text_field :nausea_rating, class: form_control_class %>
+<% end %>
+
+<%= div_form_group do %>
+    <%= f.label :tickets %>
+    <%= f.text_field :tickets, class: form_control_class %>
+<% end %>
+
+<%= content_tag :div, class: "actions" do %>
+    <br/>
+    <%= f.submit class:"btn btn-primary" %>
+<% end %>
+<% end %>
