@@ -6,4 +6,10 @@ module AttractionsHelper
             "Go on #{attraction.name}"
         end
     end
+
+    def td
+        content_tag :td do
+            yield
+        end
+    end
 end

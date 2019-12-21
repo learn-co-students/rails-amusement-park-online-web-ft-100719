@@ -1,12 +1,12 @@
-<%= content_tag :div, class: "info" do %>
-    <%= @user.name %>
-    <% if !@user.admin %>
-    <%= "Mood: #{@user.mood}" %>
-    <%= "Tickets: #{@user.tickets}" %>
-    <%= "Height: #{@user.height}" %>
-    <% else %>
-    ADMIN<BR>
+<%= content_tag :div, class: "center" do %>
+    <%= content_tag :div, class: "info" do %>
+        <% if !@user.admin %>
+        <%= content_tag :p, "Mood: #{@user.mood}" %>
+        <%= content_tag :p, "Tickets: #{@user.tickets}" %>
+        <%= content_tag :p, "Height: #{@user.height}" %>
+        <% else %>
+        <%= content_tag :p, "ADMIN" %><BR>
+        <% end %>
+        <%= link_to 'See attractions', attractions_path %>
     <% end %>
-    <%= link_to 'Log Out', '/logout', data: { method: :delete }%>
-    <%= link_to 'See attractions', attractions_path %>
 <% end %>
