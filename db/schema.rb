@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_161853) do
+ActiveRecord::Schema.define(version: 2020_01_06_200246) do
+
+  create_table "attractions", force: :cascade do |t|
+    t.string "name"
+    t.integer "nausea_rating"
+    t.integer "happiness_rating"
+    t.integer "tickets"
+    t.integer "min_height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "attraction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
