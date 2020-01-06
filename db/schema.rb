@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_200246) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.boolean "admin"
+    t.string "admin"
     t.integer "nausea"
     t.integer "happiness"
     t.integer "tickets"
