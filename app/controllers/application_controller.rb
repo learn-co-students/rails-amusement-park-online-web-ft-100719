@@ -1,43 +1,19 @@
-class AttractionsController < ApplicationController
-  def index
-    @attractions = Attraction.all
-  end
-
-  def show
-    @attraction = Attraction.find_by(id: params[:id])
-    @ride = @attraction.rides.build(user_id: current_user.id)
-  end
-
-  def new
-    @attraction = Attraction.new
-  end
-
-  def create
-    attraction = Attraction.create(attraction_params)
-    redirect_to attraction_path(attraction)
-  end
-
-  def edit
-    @attraction = Attraction.find_by(id: params[:id])
-    @ride = @attraction.rides.build(user_id: current_user.id)
-  end
-
-  def update
-    attraction = Attraction.find_by(id: params[:id])
-    attraction.update(attraction_params)
-    redirect_to attraction_path(attraction)
-  end
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  before_action :verified_user
+  helper_method :current_user
 
   private
-    def attraction_params
-      params.require(:attraction).permit(
-        :name,
-        :min_height,
-        :tickets,
-        :happiness_rating,
-        :nausea_ratiing
-      )
-    end
+
+  def verified_user
+    redirect_to '/' unless user_is_authenticated
+  end
+
+  def user_is_authenticated
+    !!current_user
+  end
+
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
 end
-
-
