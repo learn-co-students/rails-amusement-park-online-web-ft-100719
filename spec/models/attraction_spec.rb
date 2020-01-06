@@ -4,7 +4,6 @@ RSpec.describe Attraction, :type => :model do
   let(:attraction) {
     Attraction.create(
       :name => "Roller Coaster",
-      :tickets => 5,
       :nausea_rating => 2,
       :happiness_rating => 4,
       :min_height => 32

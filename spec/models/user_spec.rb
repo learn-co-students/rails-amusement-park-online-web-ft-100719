@@ -18,16 +18,13 @@ RSpec.describe User, :type => :model do
       :password => "password",
       :nausea => 5,
       :happiness => 3,
-      :tickets => 4,
       :height => 34,
-      :admin => true
     )
   }
 
   let(:roller_coaster) {
     Attraction.create(
       :name => "Roller Coaster",
-      :tickets => 5,
       :nausea_rating => 2,
       :happiness_rating => 4,
       :min_height => 32
@@ -37,7 +34,6 @@ RSpec.describe User, :type => :model do
   let(:ferris_wheel) {
     Attraction.create(
       :name => "Ferris Wheel",
-      :tickets => 2,
       :nausea_rating => 2,
       :happiness_rating => 1,
       :min_height => 28
@@ -54,10 +50,6 @@ RSpec.describe User, :type => :model do
 
   it "is valid with an admin boolean" do
     expect(admin).to be_valid
-  end
-
-  it "defaults to admin => false" do
-    expect(user.admin).to eq(false)
   end
 
   it "has many rides" do
