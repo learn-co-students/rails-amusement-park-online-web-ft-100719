@@ -1,0 +1,14 @@
+<% if @user.admin %> <%= link_to "New Attraction", new_attraction_path %> <% end %>
+<br>
+<% @attractions.each do |attraction| %>
+  <% if @user.admin %>
+    <h1><%= link_to "Show #{attraction.name}", attraction %></h1>
+    <% else %>
+    <h1><%= link_to "Go on #{attraction.name}", attraction %></h1>
+    <% end %>
+<% end %>
+<br>
+<% if @user.admin %>
+<h3>New Attraction:</h3>
+  <%= render 'form' %>
+<% end %>

@@ -1,0 +1,15 @@
+<% flash.each do |type, msg| %>
+  <p><%= msg %><p>
+<% end %>
+
+<h1><%= @user.name %></h1>
+<% if @user.happiness && @user.nausea %>
+<h2>Mood: <%= @user.mood %></h2>
+<% end %>
+<h2>Tickets: <%= @user.tickets unless @user.tickets.nil? %></h2>
+<h2>Height: <%= @user.height unless @user.height.nil? %></h2>
+<% if @user.admin %><h2><em>ADMIN</em></h2><% end %>
+
+<%= link_to "See attractions", attractions_path %>
+<br><br>
+<%= link_to "Log Out", @user, method: :delete %>
