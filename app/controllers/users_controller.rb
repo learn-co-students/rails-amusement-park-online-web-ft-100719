@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # If user saves in the db successfully:
-      flash[:notice] = "Account created successfully!"
+      flash.now.notice = "Account created successfully!"
       session[:user_id] = @user.id
       #session[:name] = @user.name
       redirect_to user_path(@user)

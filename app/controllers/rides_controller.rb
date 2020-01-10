@@ -5,8 +5,9 @@ class RidesController < ApplicationController
 
     def create
         @ride = Ride.create(ride_params)
-        message = ride.take_ride
-        flash.notice = message
+        message = @ride.take_ride
+        #binding.pry
+        flash[:notice] = message
         redirect_to user_path(current_user)
     end
 

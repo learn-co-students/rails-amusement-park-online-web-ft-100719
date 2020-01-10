@@ -44,7 +44,9 @@ class AttractionsController < ApplicationController
                                 :nausea_rating, 
                                 :happiness_rating,
                                 :tickets,
-                                :min_height)
+                                :min_height, 
+                                ride: [:user_id,
+                                :attraction_id])
   end
   
   

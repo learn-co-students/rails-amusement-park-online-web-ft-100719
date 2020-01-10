@@ -22,7 +22,7 @@ class Ride < ApplicationRecord
 
     if can_ride 
       go_on_ride 
-      msg = "Thank you for riding the #{self.attraction.name}."
+      msg = "Thanks for riding the #{self.attraction.name}!"
     end
     return msg
   end

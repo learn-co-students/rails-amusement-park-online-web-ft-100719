@@ -1,13 +1,17 @@
 <h1>Users#show</h1>
 <h2>Hello <%= @user.name %> </h2>
 <br>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<br>
 <h3> Height (in inches): <%= @user.height %> </h3>
 <br>
 <h3> Mood (1-10 scale): <%= @user.mood %> </h3>
 <br>
 <h3> Nausea (1-10 scale): <%= @user.nausea %> </h3>
 <br>
-<h3> Tickets left: <%= @user.tickets %> </h3>
+<h3> Tickets: <%= @user.tickets %> </h3>
 <br>
 <% if @user.admin %>
 <h3>ADMIN</h3>
