@@ -8,7 +8,7 @@
 
 <% if current_user.admin %>
     <%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %>
+     <%= link_to 'Add Attraction', new_attraction_path %>
   <% else %>
     <%= link_to 'Go on this ride', rides_path %>
-    
 <% end %>
