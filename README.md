@@ -24,4 +24,9 @@ You're going to be building an amusement park. There will be users, attractions,
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-amusement-park' title='Rails Amusement Park'>Rails Amusement Park</a> on Learn.co and start learning to code for free.</p>
 
 
-<%= f.submit "Go on this ride", class:"btn btn-light" %>
+<% else %>
+  <%= form_for @attraction.rides.build do |ride_form| %>
+  <%= ride_form.hidden_field :user_id, value: current_user.id %>
+  <%= ride_form.hidden_field :attraction_id, value: @attraction.id %>
+  
+  <%= button_to "Go on this ride", rides_path, action: "create" %>

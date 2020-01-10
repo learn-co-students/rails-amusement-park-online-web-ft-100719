@@ -1,2 +1,23 @@
-<h1>Attractions#new</h1>
-<p>Find me in app/views/attractions/new.html.erb</p>
+<h2>New Attraction </h2>
+<%= form_for @attraction do |f| %>
+  <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :nausea_rating, "Nausea Rating" %>
+    <%= f.number_field :nausea_rating %>
+    <br>
+    <%= f.label :min_height, "Minimum Height Requirement(in inches)" %>
+    <%= f.number_field :min_height %>
+    <br>
+    <%= f.label :happiness_rating, "How happy does it make you (1-10 scale)" %>
+    <%= f.number_field :happiness_rating %>
+    <br>
+    <%= f.label :nausea_rating, "How nauseous does it make you? (1-10 scale)" %>
+    <%= f.number_field :nausea_rating %>
+    <br>
+    <%= f.label :tickets, "How many tickets do you need to ride this?" %>
+    <%= f.number_field :tickets %>
+    <br>
+  <%= f.submit %>
+<% end %>
+ 
