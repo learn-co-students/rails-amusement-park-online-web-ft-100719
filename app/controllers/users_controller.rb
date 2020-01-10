@@ -30,7 +30,8 @@ class UsersController < ApplicationController
 
   private 
   
-  def user_params
+  
+def user_params
     params.require(:user).permit(:name, 
                                 :password, 
                                 :password_confirmation,
@@ -40,6 +41,5 @@ class UsersController < ApplicationController
                                 :height,
                                 :admin)
   end
-
   
 end

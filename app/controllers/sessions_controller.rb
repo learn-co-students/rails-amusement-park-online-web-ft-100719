@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   def destroy
     #session.delete(:name)
     session.delete(:user_id)
-    binding.pry
+    #binding.pry
     redirect_to root_path
   end
 end

@@ -15,7 +15,7 @@ class AttractionsController < ApplicationController
 
   def show
     @attraction = Attraction.find_by_id(params[:id])
-    #@ride = @attraction.ride.build
+    @ride = @attraction.rides.build(user_id: current_user.id)
   end
 
   def edit
@@ -28,26 +28,16 @@ class AttractionsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def user_params
+    params.require(:attraction).permit(:name, 
+                                :nausea_rating, 
+                                :happiness_rating,
+                                :tickets,
+                                :min_height)
+  end
+  
   
 end
-#################
 
-
-def create
-  #raise @post.inspect
-  
-  @post = Post.create(post_params)
-
-  redirect_to post_path(@post)
-end
-
-private
-
-def post_params
-  params.require(:post).permit(:title, 
-                               :content, 
-                               category_ids:[], 
-                               categories_attributes: [:name],
-                               comments: [:content,
-                                          :user_ids])
-end
