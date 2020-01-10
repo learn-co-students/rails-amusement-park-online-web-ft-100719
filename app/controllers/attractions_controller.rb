@@ -10,7 +10,7 @@ class AttractionsController < ApplicationController
 
   def create
     @attraction = Attraction.create(attraction_params)
-    redirect_to attraction_path(@post)
+    redirect_to attraction_path(@attraction)
   end
 
   def show
@@ -30,7 +30,7 @@ class AttractionsController < ApplicationController
 
   private
 
-  def user_params
+  def attraction_params
     params.require(:attraction).permit(:name, 
                                 :nausea_rating, 
                                 :happiness_rating,
