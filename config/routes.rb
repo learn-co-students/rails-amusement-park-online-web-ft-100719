@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
 
+  resources :rides
   resources :users, only: [:new, :create, :show]
+  resources :attractions
   
   root 'welcome#home'
 

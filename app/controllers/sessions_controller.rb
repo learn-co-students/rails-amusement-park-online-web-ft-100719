@@ -15,13 +15,15 @@ class SessionsController < ApplicationController
       authenticated = user.try(:authenticate, params[:password])
       return redirect_to login_path unless authenticated
       session[:user_id] = user.id
-      session[:name] = params[:user][:name] 
+      #session[:name] = params[:user][:name] 
       redirect_to user_path(user)
     end
   end
 
   def destroy
-    session.delete(:name)
-    redirect_to login_path
+    #session.delete(:name)
+    session.delete(:user_id)
+    binding.pry
+    redirect_to root_path
   end
 end
