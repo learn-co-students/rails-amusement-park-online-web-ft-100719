@@ -1,5 +1,5 @@
 <%= form_for :user, url: { controller:'sessions', action: "create", method: 'post' } do |f| %>
-  <%= f.label :name, 'Your name:' %>  <%= f.select :user_id, options_from_collection_for_select(User.all, "id", "name")%><br>
+  <%= f.label :name, 'Your name:' %>  <%= f.select :name, options_from_collection_for_select(User.all, "name", "name")%><br>
   <%= f.label :password, 'Your password:' %><br>
   <%= f.text_field :password %><br><br>
   <%= f.submit "Sign In" %>

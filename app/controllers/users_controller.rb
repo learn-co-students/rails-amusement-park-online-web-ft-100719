@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if !logged_in?
+      redirect_to root_path
+    else
+      @user = User.find_by(id: params[:id])
+    end
   end
 
   def create
@@ -13,9 +17,11 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to users_new_path
+      render 'new'
     end
   end
+
+
 
 private
 
