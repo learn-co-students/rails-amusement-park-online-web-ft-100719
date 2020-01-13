@@ -1,0 +1,7 @@
+<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+<h1><%= "ADMIN" if @user.admin %></h1>
+<p>Name: <%= @user.name %></p><br>
+<p>Tickets: <%= @user.tickets %></p><br>
+<p>Mood: <%= @user.mood %></p><br>
+<p>Height: <%= @user.height %></p><br>
+<%= link_to "See attractions", attractions_path %>
